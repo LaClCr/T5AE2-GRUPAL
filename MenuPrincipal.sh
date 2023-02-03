@@ -1,3 +1,4 @@
+
 #!/bin/bash 
 # Inicializar la matriz del juego  
 check_win() { 
@@ -7,48 +8,56 @@ check_win() {
   if [ ${board[0]} == $player ] && [ ${board[1]} == $player ] && [ ${board[2]} == $player ]; then 
 
     echo "$player GANA!" 
+     write_log "¡Jugador $player gana!"
 
     return 0 
 
   elif [ ${board[3]} == $player ] && [ ${board[4]} == $player ] && [ ${board[5]} == $player ]; then 
 
     echo "$player GANA!" 
+    write_log "¡Jugador $player gana!"
 
     return 0 
 
   elif [ ${board[6]} == $player ] && [ ${board[7]} == $player ] && [ ${board[8]} == $player ]; then 
 
     echo "$player GANA!" 
+    write_log "¡Jugador $player gana!"
 
     return 0 
 
   elif [ ${board[0]} == $player ] && [ ${board[3]} == $player ] && [ ${board[6]} == $player ]; then 
 
     echo "$player GANA!" 
+    write_log "¡Jugador $player gana!"
 
     return 0 
 
   elif [ ${board[1]} == $player ] && [ ${board[4]} == $player ] && [ ${board[7]} == $player ]; then 
 
-    echo "$player GANA!" 
+    echo "$player GANA!"
+    write_log "¡Jugador $player gana!" 
 
     return 0 
 
   elif [ ${board[2]} == $player ] && [ ${board[5]} == $player ] && [ ${board[8]} == $player ]; then 
 
     echo "$player GANA!" 
+    write_log "¡Jugador $player gana!"
 
     return 0 
 
   elif [ ${board[0]} == $player ] && [ ${board[4]} == $player ] && [ ${board[8]} == $player ]; then 
 
     echo "$player GANA!" 
+    write_log "¡Jugador $player gana!"
 
     return 0 
 
   elif [ ${board[2]} == $player ] && [ ${board[4]} == $player ] && [ ${board[6]} == $player ]; then 
 
     echo "$player GANA!" 
+    write_log "¡Jugador $player gana!"
 
     return 0 
 
@@ -157,8 +166,10 @@ print_board() {
 
 } 
 
- 
- 
+ # Función para escribir logs
+write_log() {
+  echo "$1" >> 3raya.log
+}
 
 # Función para marcar una casilla  
 
@@ -332,7 +343,8 @@ do
 
     ;; 
     "5")
-     ##AÑADIR ESTADÍSTICAS 
+     write_log
+     echo " " 
    
     ;;
 
