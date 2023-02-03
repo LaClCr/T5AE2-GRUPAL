@@ -89,12 +89,15 @@ turno=0
   
 
 while [ $turno -lt 9 ]; do 
+  clear
   ./pruebatablero.sh 
+  echo ""
+  print_board
+  echo ""
 
   echo "Turno de $player. ¿Dónde quieres mover? (0-8)" 
 
-  read move 
-
+  read move
   if check_used $move; then
   mark $player $move 
 
@@ -128,7 +131,7 @@ while [ $turno -lt 9 ]; do
   else
   echo "La celda esta ocupada"
   fi
-    print_board
+    
 
 done } 
 
@@ -179,8 +182,11 @@ move=0
 turno=0
 
 while [ $turno -lt 9 ]; do  
-
+  clear
   ./pruebatablero.sh 
+  echo ""
+  print_board
+  echo ""
   echo "Turno de $player. ¿Dónde quieres mover? (0-8)"  
 
   read move   
