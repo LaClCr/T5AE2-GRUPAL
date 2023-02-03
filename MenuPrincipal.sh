@@ -6,49 +6,49 @@ check_win() {
 
   if [ ${board[0]} == $player ] && [ ${board[1]} == $player ] && [ ${board[2]} == $player ]; then 
 
-    echo "$player wins!" 
+    echo "$player GANA!" 
 
     return 0 
 
   elif [ ${board[3]} == $player ] && [ ${board[4]} == $player ] && [ ${board[5]} == $player ]; then 
 
-    echo "$player wins!" 
+    echo "$player GANA!" 
 
     return 0 
 
   elif [ ${board[6]} == $player ] && [ ${board[7]} == $player ] && [ ${board[8]} == $player ]; then 
 
-    echo "$player wins!" 
+    echo "$player GANA!" 
 
     return 0 
 
   elif [ ${board[0]} == $player ] && [ ${board[3]} == $player ] && [ ${board[6]} == $player ]; then 
 
-    echo "$player wins!" 
+    echo "$player GANA!" 
 
     return 0 
 
   elif [ ${board[1]} == $player ] && [ ${board[4]} == $player ] && [ ${board[7]} == $player ]; then 
 
-    echo "$player wins!" 
+    echo "$player GANA!" 
 
     return 0 
 
   elif [ ${board[2]} == $player ] && [ ${board[5]} == $player ] && [ ${board[8]} == $player ]; then 
 
-    echo "$player wins!" 
+    echo "$player GANA!" 
 
     return 0 
 
   elif [ ${board[0]} == $player ] && [ ${board[4]} == $player ] && [ ${board[8]} == $player ]; then 
 
-    echo "$player wins!" 
+    echo "$player GANA!" 
 
     return 0 
 
   elif [ ${board[2]} == $player ] && [ ${board[4]} == $player ] && [ ${board[6]} == $player ]; then 
 
-    echo "$player wins!" 
+    echo "$player GANA!" 
 
     return 0 
 
@@ -64,7 +64,7 @@ reiniciar() {
 } 
  
 check_used(){
-    move=$1;
+    move=$1
     if [ ${board[$move]} == . ]; then
     return 0
     else
@@ -84,9 +84,12 @@ player="X"
 
 move=0 
 
+turno=0
+
   
 
-while [ true ]; do 
+while [ $turno -lt 9 ]; do 
+  ./pruebatablero.sh 
 
   echo "Turno de $player. ¿Dónde quieres mover? (0-8)" 
 
@@ -104,6 +107,7 @@ while [ true ]; do
 
   fi 
   
+  turno=$((turno+1))
 
   if [ $player == "X" ]; then 
 
@@ -114,6 +118,13 @@ while [ true ]; do
     player="X" 
 
   fi
+
+  if [ $turno -ge 9 ]
+  then
+    echo "EMPATE!"
+    exit 0 
+  fi
+
   else
   echo "La celda esta ocupada"
   fi
@@ -158,16 +169,18 @@ read nom1
 echo "Jugador 2, con que caracter desea jugar?"
 read nom2
 
+./pruebatablero.sh 
 print_board  
 
 
 player=$nom1 
  
 move=0  
+turno=0
 
-while [ true ]; do  
+while [ $turno -lt 9 ]; do  
 
- 
+  ./pruebatablero.sh 
   echo "Turno de $player. ¿Dónde quieres mover? (0-8)"  
 
   read move   
@@ -185,6 +198,7 @@ while [ true ]; do
 
   fi  
 
+  turno=$((turno+1))
 
   if [ $player == $nom1 ]; then   
 
@@ -197,8 +211,14 @@ while [ true ]; do
 
   fi 
 
-  else 
+  if [ $turno -ge 9]
+  then
+    echo "EMPATE!"
+    exit 0
+  fi
 
+  else 
+  echo ""
   echo "La celda esta ocupada" 
 
   fi 
@@ -226,10 +246,7 @@ do
     echo "----------------TRES EN RAYA----------------" 
 
     echo "=============================================" 
-
-    echo "" 
-
-    ./pruebatablero.sh        
+       
     echo "" 
 
     echo "-------------MENU DE OPCIONES------------------" 
@@ -249,6 +266,8 @@ do
     read -p "Selecciona una opcióN (1..3): " opcion 
 
     echo " " 
+
+
 
 
     case $opcion in  
