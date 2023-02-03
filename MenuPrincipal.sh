@@ -141,9 +141,12 @@ while [ $turno -lt 9 ]; do
 
   else
   echo "La celda esta ocupada"
+  read kks
   fi
 
-  else echo "EL NUMERO DE CASILLA NO ES VÁLIDO."
+  else 
+  echo "EL NUMERO DE CASILLA NO ES VÁLIDO."
+  read jjj
   fi
     
 
@@ -244,12 +247,15 @@ while [ $turno -lt 9 ]; do
     else 
     echo ""
     echo "La celda está ocupada" 
+    read kk
 
     fi 
 
       print_board 
 
-  else echo "EL NUMERO DE CASILLA NO ES VÁLIDO."
+  else 
+  echo "EL NUMERO DE CASILLA NO ES VÁLIDO."
+  read ccc
   fi
 
 done
