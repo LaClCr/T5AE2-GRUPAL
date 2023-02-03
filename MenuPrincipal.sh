@@ -98,6 +98,8 @@ while [ $turno -lt 9 ]; do
   echo "Turno de $player. ¿Dónde quieres mover? (0-8)" 
 
   read move
+  if [ $move -ge 0 ] && [ $move -le 8 ]
+  then
   if check_used $move; then
   mark $player $move 
 
@@ -130,6 +132,9 @@ while [ $turno -lt 9 ]; do
 
   else
   echo "La celda esta ocupada"
+  fi
+
+  else echo "EL NUMERO DE CASILLA NO ES VÁLIDO."
   fi
     
 
@@ -188,51 +193,55 @@ while [ $turno -lt 9 ]; do
   print_board
   echo ""
   echo "Turno de $player. ¿Dónde quieres mover? (0-8)"  
+  read move 
 
-  read move   
+  if [ $move -ge 0 ] && [ $move -le 8 ]
+  then  
 
-  if check_used $move; then 
+    if check_used $move; then 
 
-  mark $player $move  
+    mark $player $move  
 
 
-  if check_win $player; then 
+    if check_win $player; then 
 
     print_board;  
 
     exit 0;   
 
-  fi  
+    fi  
 
-  turno=$((turno+1))
+    turno=$((turno+1))
 
-  if [ $player == $nom1 ]; then   
+    if [ $player == $nom1 ]; then   
 
     player=$nom2  
 
-  else  
+    else  
 
     player=$nom1  
 
 
-  fi 
+    fi 
 
-  if [ $turno -ge 9]
-  then
-    echo "EMPATE!"
-    exit 0
+    if [ $turno -ge 9]
+    then
+      echo "EMPATE!"
+      exit 0
+   fi
+
+    else 
+    echo ""
+    echo "La celda está ocupada" 
+
+    fi 
+
+      print_board 
+
+  else echo "EL NUMERO DE CASILLA NO ES VÁLIDO."
   fi
 
-  else 
-  echo ""
-  echo "La celda está ocupada" 
-
-  fi 
-
-    print_board 
-
 done
-
 
 }  
 
@@ -305,20 +314,20 @@ do
 
     "3") 
 
-    echo "FIN DEL JUEGO." 
-
-    break 
+     ##AÑADIR EL RANDOM
 
     ;; 
 
     "4") 
+  echo "FIN DEL JUEGO." 
 
-    ##AÑADIR ESTADÍSTICAS 
+    break 
+   
 
     ;; 
-    
     "5")
-    ##AÑADIR EL RANDOM
+     ##AÑADIR ESTADÍSTICAS 
+   
     ;;
 
     esac 
