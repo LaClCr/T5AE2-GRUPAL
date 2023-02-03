@@ -225,7 +225,7 @@ while [ $turno -lt 9 ]; do
 
   else 
   echo ""
-  echo "La celda esta ocupada" 
+  echo "La celda está ocupada" 
 
   fi 
 
@@ -257,19 +257,21 @@ do
 
     echo "-------------MENU DE OPCIONES------------------" 
 
-    echo "OPCIÓN 1: EMPEZAR PARTIDA." 
+    echo "OPCIÓN 1: EMPEZAR PARTIDA (2 JUGADORES)." 
 
-    echo "OPCIÓN 2: MODO FIESTA." 
+    echo "OPCIÓN 2: MODO FIESTA (2 JUGADORES)." 
 
-    echo "OPCIÓN 3: SALIR DEL JUEGO." 
+    echo "OPCIÓN 3: JUGAR CONTRA LA MÁQUINA (1 JUGADOR)."
 
-    echo "OPCIÓN 4: VER ESTADÍSTICAS." 
+    echo "OPCIÓN 4: SALIR DEL JUEGO." 
+
+    echo "OPCIÓN 5: VER ESTADÍSTICAS." 
 
     echo "----------------------------------------------" 
 
     echo " " 
 
-    read -p "Selecciona una opcióN (1..3): " opcion 
+    read -p "Selecciona una opción (1..5): " opcion 
 
     echo " " 
 
@@ -314,6 +316,10 @@ do
     ##AÑADIR ESTADÍSTICAS 
 
     ;; 
+    
+    "5")
+    ##AÑADIR EL RANDOM
+    ;;
 
     esac 
 
