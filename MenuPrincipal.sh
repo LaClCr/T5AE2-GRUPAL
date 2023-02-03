@@ -5,38 +5,63 @@ reiniciar() {
     board=(. . . . . . . . .) 
 } 
  
+check_used(){
+    move=$1;
+    if [ ${board[$move]} == . ]; then
+    return 0
+    else
+    return 1
+    fi
+
+}
 
 juegoPrincipal() { 
-    echo "EMPEZANDO PARTIDA..."  
+echo "Bienvenido al juego 3 en raya!" 
 
-print_board   
+print_board 
 
-player="X"   
+  
 
-move=0  
+player="X" 
 
-while [ $move -lt 9 ]; do  
+move=0 
 
-  echo "Turno de $player. ¿Dónde quieres mover? (0-8)"  
+  
 
-  read move  
+while [ true ]; do 
 
-  mark $player $move  
-  print_board  
+  echo "Turno de $player. ¿Dónde quieres mover? (0-8)" 
 
-  if check_win $player; then  
-    exit 0  
-  fi  
+  read move 
 
-  if [ $player == "X" ]; then  
+  if check_used $move; then
+  mark $player $move 
 
-    player="O"  
-  else  
-    player="X"  
-  fi  
+ 
 
-done  
-} 
+  if check_win $player; then
+  
+    print_board; 
+    exit 0; 
+
+  fi 
+  
+
+  if [ $player == "X" ]; then 
+
+    player="O" 
+
+  else 
+
+    player="X" 
+
+  fi
+  else
+  echo "La celda esta ocupada"
+  fi
+    print_board
+
+done } 
 
 # Función para imprimir la matriz 
 print_board() { 
@@ -131,7 +156,7 @@ do
     echo "=============================================" 
 
     echo "" 
-
+    ;;
     # Por programar (HUGO) 
 
     "3") 
