@@ -1,6 +1,64 @@
 #!/bin/bash 
 # Inicializar la matriz del juego  
+check_win() { 
 
+  player=$1 
+
+  if [ ${board[0]} == $player ] && [ ${board[1]} == $player ] && [ ${board[2]} == $player ]; then 
+
+    echo "$player wins!" 
+
+    return 0 
+
+  elif [ ${board[3]} == $player ] && [ ${board[4]} == $player ] && [ ${board[5]} == $player ]; then 
+
+    echo "$player wins!" 
+
+    return 0 
+
+  elif [ ${board[6]} == $player ] && [ ${board[7]} == $player ] && [ ${board[8]} == $player ]; then 
+
+    echo "$player wins!" 
+
+    return 0 
+
+  elif [ ${board[0]} == $player ] && [ ${board[3]} == $player ] && [ ${board[6]} == $player ]; then 
+
+    echo "$player wins!" 
+
+    return 0 
+
+  elif [ ${board[1]} == $player ] && [ ${board[4]} == $player ] && [ ${board[7]} == $player ]; then 
+
+    echo "$player wins!" 
+
+    return 0 
+
+  elif [ ${board[2]} == $player ] && [ ${board[5]} == $player ] && [ ${board[8]} == $player ]; then 
+
+    echo "$player wins!" 
+
+    return 0 
+
+  elif [ ${board[0]} == $player ] && [ ${board[4]} == $player ] && [ ${board[8]} == $player ]; then 
+
+    echo "$player wins!" 
+
+    return 0 
+
+  elif [ ${board[2]} == $player ] && [ ${board[4]} == $player ] && [ ${board[6]} == $player ]; then 
+
+    echo "$player wins!" 
+
+    return 0 
+
+  else 
+
+    return 1 
+
+  fi 
+
+} 
 reiniciar() { 
     board=(. . . . . . . . .) 
 } 
@@ -171,8 +229,7 @@ do
 
     echo "" 
 
-    ./pruebatablero.sh         ##LLAMAMOS AL SCRIPT QUE VISUALIZA EL TABLERO CON LOS NUMEROS ORIENTATIVOS 
-
+    ./pruebatablero.sh        
     echo "" 
 
     echo "-------------MENU DE OPCIONES------------------" 
@@ -198,8 +255,6 @@ do
 
     "1") 
 
-    ##EMPEZAR PARTIDA E INICIAR JUEGO PRINCIPAL 
-
     reiniciar 
 
     juegoPrincipal     
@@ -218,9 +273,8 @@ do
 
     echo ""
     reiniciar
-¡  fiesta
+    fiesta
     ;;
-    # Por programar (HUGO) 
 
     "3") 
 
