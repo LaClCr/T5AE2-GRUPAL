@@ -613,9 +613,8 @@ do
 
     ;; 
     "5")
-     write_log
-     cat 3raya.log
-     echo " " 
+      clear
+     ./estadisticas.sh
      read kk
    
     ;;
