@@ -246,7 +246,7 @@ do
         m=0;
         mark $jugador $mov;
             if check_win $jugador; then
-              exit 0; 
+              exit 531; 
 
             fi
 
@@ -312,7 +312,8 @@ else #Turno de la máquina
 
     #Si gana la máquina se acaba la partida
     if check_win $maquina; then
-      exit 0;
+      print_board
+      exit 531;
     fi
 
 fi
@@ -322,7 +323,8 @@ fi
   if [ $turn -eq 9 ]
     then
       echo "ES UN EMPATE!"
-      exit 0 
+      print_board
+      exit 531 
   fi
 
 
@@ -375,7 +377,7 @@ while [ $turno -lt 9 ]; do
   if check_win $player; then
   
     print_board; 
-    exit 0; 
+    exit 531; 
 
   fi 
   
@@ -394,7 +396,8 @@ while [ $turno -lt 9 ]; do
   if [ $turno -ge 9 ]
   then
     echo "EMPATE!"
-    exit 0 
+    print_board
+    exit 531 
   fi
 
   else
@@ -479,7 +482,7 @@ while [ $turno -lt 9 ]; do
 
     print_board;  
 
-    exit 0;   
+    exit 531;   
 
     fi  
 
@@ -499,7 +502,7 @@ while [ $turno -lt 9 ]; do
     if [ $turno -ge 9]
     then
       echo "EMPATE!"
-      exit 0
+      exit 531
    fi
 
     else 
