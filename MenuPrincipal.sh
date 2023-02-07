@@ -246,7 +246,9 @@ do
         m=0;
         mark $jugador $mov;
             if check_win $jugador; then
-              exit 0; 
+            print_board
+            read kaka
+              return; 
 
             fi
 
@@ -313,7 +315,8 @@ else #Turno de la máquina
     #Si gana la máquina se acaba la partida
     if check_win $maquina; then
       print_board
-      exit 0;
+      read kaka
+      return;
     fi
 
 fi
@@ -324,7 +327,8 @@ fi
     then
       echo "ES UN EMPATE!"
       print_board
-      exit 0 
+      read kaka
+      return 
   fi
 
 
@@ -377,7 +381,8 @@ while [ $turno -lt 9 ]; do
   if check_win $player; then
   
     print_board; 
-    exit 0; 
+    read kaka
+    return; 
 
   fi 
   
@@ -397,7 +402,8 @@ while [ $turno -lt 9 ]; do
   then
     echo "EMPATE!"
     print_board
-    exit 0 
+    read kaka
+    return 
   fi
 
   else
@@ -481,8 +487,9 @@ while [ $turno -lt 9 ]; do
     if check_win $player; then 
 
     print_board;  
+    read kaka
 
-    exit 0;   
+    return;   
 
     fi  
 
@@ -502,7 +509,8 @@ while [ $turno -lt 9 ]; do
     if [ $turno -ge 9]
     then
       echo "EMPATE!"
-      exit 0
+      read kaka
+      return
    fi
 
     else 
@@ -532,7 +540,7 @@ while [ $opcion -ne "4" ]
 
 do 
 
-    echo "" 
+    clear
 
     echo "=============================================" 
 
@@ -606,7 +614,9 @@ do
     ;; 
     "5")
      write_log
+     cat 3raya.log
      echo " " 
+     read kk
    
     ;;
 
